@@ -1,33 +1,27 @@
-<div class='main-nav'>
-    <div class='navbar navbar-inverse'>
-        <div class='navbar-header'>
-            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-                <span class='sr-only'>Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-            </button>
-            <a class='navbar-brand' [routerLink]="['/home']">BiscuitLandAngular</a>
-        </div>
-        <div class='clearfix'></div>
-        <div class='navbar-collapse collapse'>
-            <ul class='nav navbar-nav'>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/home']">
-                        <span class='glyphicon glyphicon-home'></span> Home
-                    </a>
-                </li>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/counter']">
-                        <span class='glyphicon glyphicon-education'></span> Counter
-                    </a>
-                </li>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/fetch-data']">
-                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
-                    </a>
+<div class="PageHeader">
+    <div class="HeaderText">
+        <a href="/">Welcome to my MVC site</a>
+    </div>
+    <ul class="TopNavigation">
+        <li *ngFor="let navItem of navItemList">
+            <a *ngIf="navItem.url" href="{{ navItem.url }}">{{ navItem.text }}</a>
+            <div *ngIf="!navItem.url">{{ navItem.text }}</div>
+            <ul *ngIf="navItem.subItems" class="SubNavigation">
+                <li *ngFor="let navSubItem of navItem.subItems">
+                    <a *ngIf="navSubItem.url" href="{{ navSubItem.url }}">{{ navSubItem.text }}</a>
+                    <div *ngIf="!navSubItem.url">{{ navSubItem.text }}</div>
                 </li>
             </ul>
-        </div>
-    </div>
+        </li>
+        <!--<li><a href="/">Home</a></li>
+        <li>
+            <div>Cooking</div>
+            <ul class="SubNavigation">
+                <li><a href="/Recipes/Search">Recipe List</a></li>
+            </ul>
+        </li>
+        <li><a href="/About">About</a></li>
+        <li><a href="/Home/Contact">Contact</a></li>
+        <li><a href="/Login">Login</a></li>-->
+    </ul>
 </div>

@@ -1,59 +1,98 @@
-li .glyphicon {
-    margin-right: 10px;
+.PageHeader {
+    clear: both;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    background: -webkit-linear-gradient(top, #4800ff 0%,#723fff 50%,#dddddd 100%);
+    background: -o-linear-gradient(bottom, #4800ff 0%,#723fff 50%,#dddddd 100%);
+    background: -moz-linear-gradient(bottom, #4800ff 0%,#723fff 50%,#dddddd 100%);
+    background: linear-gradient(to bottom, #4800ff 0%,#723fff 50%,#dddddd 100%);
+    color: #ffffff;
 }
 
-/* Highlighting rules for nav menu items */
-li.link-active a,
-li.link-active a:hover,
-li.link-active a:focus {
-    background-color: #4189C7;
-    color: white;
+    .PageHeader .HeaderText {
+        font-weight: bold;
+        font-size: 17px;
+        padding: 10px;
+        display: inline-block;
+        width: 225px;
+    }
+
+    .PageHeader a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+        .PageHeader a:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+.TopNavigation {
+    text-align: left;
+    display: inline;
+    margin: 0;
+    list-style: none;
+    font-weight: bold;
 }
 
-/* Keep the nav menu independent of scrolling and on top of other items */
-.main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
+    .TopNavigation li {
+        display: inline-block;
+        position: relative;
+        font-size: 14px;
+    }
 
-@media (min-width: 768px) {
-    /* On small screens, convert the nav menu to a vertical sidebar */
-    .main-nav {
-        height: 100%;
-        width: calc(25% - 20px);
+        .TopNavigation li a, .TopNavigation li div {
+            display: inline-block;
+            padding: 13px 10px 12px 10px;
+        }
+
+        .TopNavigation li a {
+            cursor: pointer;
+        }
+
+        .TopNavigation li:hover {
+            background: -webkit-linear-gradient(top, #333333 0%,#888888 100%);
+            background: -o-linear-gradient(bottom, #333333 0%,#888888 100%);
+            background: -moz-linear-gradient(bottom, #333333 0%,#888888 100%);
+            background: linear-gradient(to bottom, #333333 0%,#888888 100%);
+        }
+
+    .TopNavigation .SubNavigation {
+        padding: 0;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        width: 150px;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
     }
-    .navbar {
-        border-radius: 0px;
-        border-width: 0px;
-        height: 100%;
+
+        .TopNavigation .SubNavigation li {
+            background: -webkit-linear-gradient(top, #888888 0%,#AAAAAA 100%);
+            background: -o-linear-gradient(bottom, #888888 0%,#AAAAAA 100%);
+            background: -moz-linear-gradient(bottom, #888888 0%,#AAAAAA 100%);
+            background: linear-gradient(to bottom, #888888 0%,#AAAAAA 100%);
+            display: block;
+            width: 150px;
+            font-size: 14px;
+        }
+
+            .TopNavigation .SubNavigation li a, .TopNavigation .SubNavigation li div {
+                padding: 5px 10px 5px 10px;
+                font-size: 14px;
+            }
+
+            .TopNavigation .SubNavigation li:hover {
+                background: -webkit-linear-gradient(top, #333333 0%,#888888 100%);
+                background: -o-linear-gradient(bottom, #333333 0%,#888888 100%);
+                background: -moz-linear-gradient(bottom, #333333 0%,#888888 100%);
+                background: linear-gradient(to bottom, #333333 0%,#888888 100%);
+            }
+
+    .TopNavigation li:hover .SubNavigation {
+        display: block;
+        opacity: 1;
+        visibility: visible;
     }
-    .navbar-header {
-        float: none;
-    }
-    .navbar-collapse {
-        border-top: 1px solid #444;
-        padding: 0px;
-    }
-    .navbar ul {
-        float: none;
-    }
-    .navbar li {
-        float: none;
-        font-size: 15px;
-        margin: 6px;
-    }
-    .navbar li a {
-        padding: 10px 16px;
-        border-radius: 4px;
-    }
-    .navbar a {
-        /* If a menu item's text is too long, truncate it */
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
+
