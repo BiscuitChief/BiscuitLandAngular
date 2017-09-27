@@ -15,7 +15,7 @@ export class NavMenuComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.navItemList = this.navMenuService.getNavItems();
+        this.navMenuService.getNavItems().then(navitems => { this.navItemList = navitems; });
     }
 
 }

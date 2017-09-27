@@ -1,14 +1,14 @@
 <div class="PageHeader">
     <div class="HeaderText">
-        <a href="/">Welcome to my Angular .NET Core site</a>
+        <a href="/">Welcome to my .NET site</a>
     </div>
     <ul class="TopNavigation">
         <li *ngFor="let navItem of navItemList">
-            <a *ngIf="navItem.url" href="{{ navItem.url }}">{{ navItem.text }}</a>
+            <a *ngIf="navItem.url" href="{{ navItem.url }}" target="{{ navItem.target }}">{{ navItem.text }}</a>
             <div *ngIf="!navItem.url">{{ navItem.text }}</div>
             <ul *ngIf="navItem.subItems" class="SubNavigation">
                 <li *ngFor="let navSubItem of navItem.subItems">
-                    <a *ngIf="navSubItem.url" href="{{ navSubItem.url }}">{{ navSubItem.text }}</a>
+                    <a *ngIf="navSubItem.url" href="{{ navSubItem.url }}" target="{{ navSubItem.target }}">{{ navSubItem.text }}</a>
                     <div *ngIf="!navSubItem.url">{{ navSubItem.text }}</div>
                 </li>
             </ul>
