@@ -10,16 +10,9 @@ export class NavMenuService {
 
     }
 
-    getNavItems() {
+    getNavItems(): Promise<NavItem[]> {
         return this.http.get('api/gettopnavigation')
-            .map(response => response.json() as NavItem[]).toPromise();
-
-        //return [
-        //    { text: "Home", url: "/" },
-        //    { text: "Cooking", url: "", subItems: [{ text: "Recipe List", url: "/Recipes/Search" }] },
-        //    { text: "About", url: "/About" },
-        //    { text: "Contact", url: "/Home/Contact" },
-        //    { text: "Login", url: "/Login" },
-        //] as NavItem[];
+            .toPromise()
+            .then(response => response.json() as NavItem[]);
     }
 }

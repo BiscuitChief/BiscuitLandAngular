@@ -21,6 +21,7 @@ namespace BiscuitLandAngular.Controllers
         }
 
         [Route("api/gettopnavigation")]
+        [ValidateAntiForgeryToken]
         [HttpGet]
         public IActionResult GetTopNavigation()
         {

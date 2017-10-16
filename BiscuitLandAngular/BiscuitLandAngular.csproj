@@ -28,10 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SupportClasses\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\components\navmenu\navitem.type.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\navmenu\navmenu.service.ts" />
   </ItemGroup>

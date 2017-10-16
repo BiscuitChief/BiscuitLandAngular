@@ -22,7 +22,13 @@ namespace BiscuitLandAngular
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            //Add angular compatible anti-forgery headers and cookies
+            services.AddAntiforgery(opts => opts.HeaderName = "X-XSRF-Token");
+            services.AddMvc(opts =>
+            {
+                opts.Filters.AddService(typeof(AngularAntiforgeryCookieResultFilter));
+            });
+            services.AddTransient<AngularAntiforgeryCookieResultFilter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
