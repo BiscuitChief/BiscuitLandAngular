@@ -1,6 +1,10 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
+import 'rxjs/add/operator/delay';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 import { NavItem } from './navitem.type';
 

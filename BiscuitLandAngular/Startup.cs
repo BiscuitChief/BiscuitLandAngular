@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace BiscuitLandAngular
 {
@@ -22,6 +24,13 @@ namespace BiscuitLandAngular
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+             .AddCookie(options =>
+             {
+                 options.ExpireTimeSpan = TimeSpan.FromDays(7);
+             }
+             );
+
             //Add angular compatible anti-forgery headers and cookies
             services.AddAntiforgery(opts => opts.HeaderName = "X-XSRF-Token");
             services.AddMvc(opts =>
@@ -29,6 +38,8 @@ namespace BiscuitLandAngular
                 opts.Filters.AddService(typeof(AngularAntiforgeryCookieResultFilter));
             });
             services.AddTransient<AngularAntiforgeryCookieResultFilter>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.Add(new ServiceDescriptor(typeof(DBHelper), new DBHelper(Configuration.GetConnectionString("default"))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

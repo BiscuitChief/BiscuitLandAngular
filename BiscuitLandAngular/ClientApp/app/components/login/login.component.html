@@ -1,0 +1,21 @@
+﻿<div>
+    You can use the form below to log in.  I have setup some demo logins so you can see the entire site
+    <br /><br />
+    Username: <b>admin</b>, Password: <b>test</b><br />
+    The demo admin login will allow you to see the entire site.  It will not allow you to save data.
+    <br /><br />
+    Username: <b>test</b>, Password: <b>test</b><br />
+    The demo test login is an example of a login without admin security roles.
+</div>
+<div class="SectionHeading">
+    Login
+</div>
+<div>
+    Please enter your login information below.
+    <br /><br />
+    User Name <input [(ngModel)]="loginInfo.userName" placeholder="User Name" />
+    <br /><br />
+    Password <input [(ngModel)]="loginInfo.password" placeholder="Password" type="password" />
+    <br /><br />
+    <input type="button" id="btnSubmit" class="BtnSubmit" value="Login" />
+</div>
